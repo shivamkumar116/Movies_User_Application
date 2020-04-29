@@ -1,0 +1,22 @@
+eureka:
+  client:
+    register-with-eureka: true
+server:
+  port: 8081
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:1111
+  application:
+    name: Eureka-Zuul-Proxy
+zuul:
+  prefix: /api
+  routes:
+    Movies:
+      path: /movie/**
+      service-id: Movie-Service
+    User:
+     path: /user/**
+     service-id: User-Service
+ 
